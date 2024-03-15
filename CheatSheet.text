@@ -1,0 +1,200 @@
+# Git n GitHub
+
+# Git and GitHub Cheat Sheet
+
+## Basics
+
+Some common commands of Unix system
+
+- `ls` → list files n folders
+- `pwd` → print working directory
+- `ls -lart` → to see even hidden files
+- `clear`  → to clear the screen
+- `exit` → to close
+- `cd` → change directory
+- `cd d:`
+- `cd folder\ name\ with\ more\ than\ single\ word`
+- `touch filename` → to create a file
+- `mkdir` → create directory
+- `rm` → remove
+
+### Git Track
+
+- untracked file : when file is not tracked by git. Need to add to git `git add -A`
+- staged file : when file is added to git. Need to be commit-ed `git commit -m “initial commit”`
+- commit file : when file is commit-ed and everything is well managed. One may or may not make changes to the file.
+- modified file : when file is modified, it will again ask to add to git and commit it
+
+      `git commit -a -m “modified”` 
+
+After all these steps at local system, now two more steps to push at GitHub
+
+- `git remote add origin_name git@github.com:username/repositoryname.git` : To add remote
+- `git push origin_name branch_name` : To push, now check your GitHub & all set!
+
+### Initialize Git Repository
+
+- `git init`: Initialize a new Git repository in the current directory. (always we have to initiate)
+
+### Clone Repository
+
+- `git clone <repository_url>`: Clone a repository from a remote URL to your local machine.
+
+### Configure Git: To create username & email
+
+- `git config --global user.name "Your Name"`: Set your name for Git commits.
+- `git config --global user.email "youremail@example.com"`: Set your email for Git commits
+- `git config --global user.name`: To check n print username
+- `git config --global user.email`: To check n print email
+
+### Add and Commit Changes
+
+- `git add <file>`: Add changes in a file to the staging area.
+- `git add -A`: Add changes all at once
+- `git commit`: Commit → write message and then skip using `wq` if needed
+- `git commit -m "Your commit message"`: Commit staged changes with a descriptive message.
+- `git commit -a -m "Your commit message"`: Add & Commit at once (only works at modified)
+
+### Status View
+
+- `git status`: Status, tells about the current situation of a repository
+- `git status -s`: Status in short
+
+### Remove File
+
+- `git rm <file>`: To remove the file from everywhere, from git commit area → untracked
+- `git rm --cached <file>`: To remove the file from staged area.
+
+### Log View
+
+- `git log`: To list all the commits done in past
+- `git log -p -n`: here n = any number {1-infinite) shows only number of commits from last
+
+Note: `q`  is used to logout log area if needed.
+
+### Push Changes
+
+- `git push origin <branch>`: Push committed changes to a remote repository.
+- `git push -u origin <branch>`: Push committed changes and all sets remote n local directory
+- `git push`: can push on default set remote directory from local
+
+### Pull Changes
+
+- `git pull origin <branch>`: Pull changes from a remote repository to your local repository.
+
+### Undo Changes
+
+If someone modified your file and now it is having lots of errors in it. In that case we may wish to come back to the previous version of our code/file. 
+
+- `git checkout <file>`: Undo changes, retrieve the lost code.
+- `git checkout -f` : To undo all changes at once, retrieve all files at once.
+
+### Know Difference
+
+- `git diff`: Shows the difference between current working file and staged file.
+- `git diff --staged` : Compares staged file/code & Commit file/code.
+
+## Branching
+
+### Create Branch
+
+- `git branch <branch_name>`: Create a new branch with the specified name.
+
+### To Change Branch Name
+
+- `git branch -m oldname newname`: -m for modify, to change name
+
+### Show Branch
+
+- `git branch`: To show all the branches present
+
+### Switch Branch
+
+- `git checkout <branch_name>`: Switch to the specified branch.
+
+### Create and Switch Branch
+
+- `git checkout -b <branch_name>`: Create and switch to a new branch in one step.
+
+### Delete Branch
+
+- `git branch -d <branch_name>`: Delete the specified branch.
+
+## Merging
+
+### Merge Branch
+
+Note: before merging, make sure you are in main branch
+
+- `git merge <branch_name>`: Merge changes from the specified branch into the current branch.
+
+## Remote Repositories
+
+A repository is a place where you can store your code, your files, each file’s version history on GitHub {GitHub → It is a website & service that hosts & tracks the changes of projects using git, an open source version control systems - more importantly cloud based version control system}.
+
+This helps in tracking the software changes.
+
+Local Repositories: made in system by git/git bash
+
+Remote Repositories:
+
+These are repositories made in GitHub, and can make as many public n private repository.
+
+### Add Remote
+
+- `git remote add <name> <repository_url>`: Add a remote repository with the specified name and URL.
+- more specifically `git remote add <name> git@github.com:username/repositoryname.git`
+
+### Remove Remote
+
+- `git remote remove <name>`: Remove the remote repository with the specified name.
+
+### Remote check
+
+- `git remote`: Remote repository names, this name is a call sign
+- `git remote -v` : name, along with address
+
+## GitHub
+
+### Create Repository
+
+- Go to GitHub > "+" icon > "New repository" to create a new repository online.
+
+### Push to GitHub
+
+- After adding changes locally, push them to GitHub using `git push origin <branch>`.
+
+### Pull from GitHub
+
+- Pull changes from GitHub using `git pull origin <branch>` to update your local repository.
+
+### SSH Authentication
+
+- Use SSH for secure authentication with GitHub to avoid entering credentials repeatedly.
+- Open git bash → `ssh -keygen -t rsa -b 4096 -C “emial”`
+- To generate and copy key `clip < ~/.ssh/id_rsa.pub`
+- Now open GitHub > Settings> SSH Key > Paste key there : all set [It’s a one time process]
+
+### Git Ignore
+
+- Create a `.gitignore` file to specify files and directories Git should ignore.
+- Can write `*.exetension_name / filename.extension / foldername\ etc` to git ignore
+
+### Git Hosting
+
+- Always new project > always re-initiate local repository: `init > {make files} > add > commit > add remote repository > push local to remote > add readme`
+- Now → Open GitHub > Settings > Pages > Chose a branch > Refresh (wait n refresh)
+- It’s live now! - your page is hosted by GitHub
+
+### README
+
+- Write a README file to provide information about your project, including setup instructions, usage, and contribution guidelines.
+
+## Troubleshooting
+
+- If you encounter conflicts during a merge or pull, resolve them manually and commit the changes.
+
+## Resources
+
+- [Git Documentation](https://git-scm.com/doc)
+- [GitHub Guides](https://guides.github.com/)
